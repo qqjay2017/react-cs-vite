@@ -2,7 +2,7 @@
     "extends": "../../tsconfig.base.json",
     "include": ["./", "../types"],
     "compilerOptions": {
-      "types": [],
+      "types": ["vite/client"],
       "target": "ES2019",
       "lib": ["ESNext", "DOM", "DOM.Iterable"],
       "jsx": "react-jsx"

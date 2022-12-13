@@ -19,16 +19,22 @@ const pkg = JSON.parse(
 // const envConfig = defineConfig({});
 
 const clientConfig = defineConfig({
-  input: path.resolve(__dirname, "src/client/client.tsx"),
+  input:{
+    client: path.resolve(__dirname, "src/client/client.tsx"),
+    export: path.resolve(__dirname, "src/client/export.tsx"),
+
+  },
   external: ["./env", "@vite/env"],
   plugins: [
     ...createPublicCopyPlugins(),
     typescript({
       tsconfig: path.resolve(__dirname, "src/client/tsconfig.json"),
+      declaration:true,
+      declarationDir: path.resolve(__dirname, "dist/client"),
     }),
   ],
   output: {
-    file: path.resolve(__dirname, "dist/client", "client.js"),
+    dir: path.resolve(__dirname, "dist/client", ),
     sourcemap: true,
   },
 });
@@ -153,7 +159,7 @@ function createPublicCopyPlugins(){
     copy({
       targets: [
         { src: 'src/public/**/*', dest: 'dist/public' },
-        { src: 'src/html/**/*', dest: 'dist/html' },
+        { src: 'src/html/index.html', dest: 'dist/' },
       
       ]
     })
