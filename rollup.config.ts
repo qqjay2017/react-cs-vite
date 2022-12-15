@@ -10,6 +10,7 @@ import copy from 'rollup-plugin-copy'
 import json from '@rollup/plugin-json'
 import { fileURLToPath } from "node:url";
 
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 console.log(__dirname,'__dirname');
@@ -144,7 +145,7 @@ function createNodePlugins(
         },
       }),
     commonjs({
-      extensions: [".js"],
+      extensions: [".js",".ts"],
       // Optional peer deps of ws. Native deps that are mostly for performance.
       // Since ws is not that perf critical for us, just ignore these deps.
       ignore: ["bufferutil", "utf-8-validate"],
