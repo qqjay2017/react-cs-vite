@@ -47,7 +47,7 @@ export const resolveConfig = async () => {
     mode: "development",
     root: paths.root,
     server: {
-      port: 1337,
+      port: 9527,
       fs: {
         allow: [paths.workspaceRoot, ".."],
       },
